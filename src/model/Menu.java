@@ -91,10 +91,12 @@ public void drawScore(PVector maus, ArrayList<HighScore> scores) {
 	myWindow.text("Zurück", myWindow.width/2, myWindow.height-15);
 	myWindow.stroke(200);
 	myWindow.line(myWindow.width/10*4, myWindow.height-50, myWindow.width/10*6, myWindow.height-50);
+	/*
+	 * schleife zum ausgeben des Array Inhalts
+	 */
 	int platz =1;
 	int y =150;
 	for (HighScore score : scores) {
-		//HighScore tScore = score.get(i);
 		if (platz<11) {
 		myWindow.fill(255,200,100);
 		myWindow.text("-"+platz+"-",myWindow.width/2-240, y);

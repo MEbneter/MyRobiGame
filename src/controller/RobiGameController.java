@@ -175,9 +175,15 @@ public class RobiGameController extends PApplet{
 				if (getDistance(kugel.getVector(),playerRobi.getVector()) < playerRobi.getRobiWidth()/2+10) {
 					
 					if (gameStatus !=2) {
+						/*
+						 * scores werden gelesen und in den array geschrieben und sortiert
+						 */
 						score.readHighscores();
 						playerScore = new HighScore (playerName,playerRobi.getRobiPunkte());
 						score.sortScores();
+						/*
+						 * schleife zur evaluation ob der spieler es in die top 10 geschafft hat
+						 */
 						int tCount = 0;
 						for (HighScore tScore : score.getHighScore()) {
 							if (playerRobi.getRobiPunkte() > tScore.getPunkte() && tCount < 10) {
@@ -187,6 +193,9 @@ public class RobiGameController extends PApplet{
 							}
 							tCount++;
 						}
+						/*
+						 * spieler wird in die top10 geschrieben fals Wahr und gespeichert
+						 */
 						if (topTen) {
 							score.addScore(playerScore);
 						}
